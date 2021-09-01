@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raju Ahmed</title>
+    <title>Archived Books!</title>
 
     <!-- bootstrap 5 -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -13,25 +13,45 @@
 </head>
 
 <body>
-
-    <!-- HEADER START -->
-
-    <!-- HEADER END -->
-
-
     <!-- MAIN START -->
     <main>
+        <section class="container">
+            <h2 class="text-center text-warning mt-4 mb-2">Search A Book Name Which You Looking For!</h2>
+
+            <!-- book search area -->
+            <div class="input-group mb-3 w-50 mx-auto">
+                <input id="search-field" type="text" class="form-control" placeholder="Search by Name"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                <!-- Button -->
+                <button onclick="searchBook()" class="btn btn-outline-primary ms-3" type="button">Search</button>
+            </div>
+
+            <!-- Showing Error Message -->
+            <div>
+                <p id="error-message" class=" text-danger text-center">Something Went Wrong Please Try Again Later!</p>
+            </div>
+
+            <!-- Book Search Results row-cols-1 row-cols-md-3 g-4-->
+
+            <div id="search-result" class="row d-flex justify-content-around g-4">
+
+                <!-- <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="" alt="">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Books title</h5>
+                        <p class="card-text">Books Author</p>
+                        <p class="card-text">First Realese</p>
+                        <a href="#" class="btn btn-primary">See More Details</a>
+                    </div>
+                </div> -->
+            </div>
+
+        </section>
 
     </main>
     <!-- MAIN END -->
-
-
-    <!-- FOOTER START -->
-    <footer>
-
-    </footer>
-    <!-- FOOTER END -->
-
 
     <!-- javascript files -->
     <script src="js/bootstrap.bundle.min.js"></script>
