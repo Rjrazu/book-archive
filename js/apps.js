@@ -13,10 +13,10 @@ const searchBook = () => {
         alert('Please Type Something And Then You Can Search!');
     } else {
         // load data
-        const url = `http://openlibrary.org/search.json?q=${searchText}`;
+        const url = `https://openlibrary.org/search.json?q=${searchText}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => displaySearchResult(data.docs));
+            .then(data => displaySearchResult(data.docs))
     }
 };
 
