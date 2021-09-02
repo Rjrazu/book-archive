@@ -16,7 +16,7 @@
     <!-- MAIN START -->
     <main>
         <section class="container">
-            <h2 class="text-center text-warning mt-4 mb-2">Search A Book Name Which You Looking For!</h2>
+            <h2 class="text-center text-warning mt-4 mb-4">Search A Book Name Which You Looking For!</h2>
 
             <!-- book search area -->
             <div class="input-group mb-3 w-50 mx-auto">
@@ -27,27 +27,19 @@
                 <button onclick="searchBook()" class="btn btn-outline-primary ms-3" type="button">Search</button>
             </div>
 
-            <!-- Showing Error Message -->
+            <!-- Items Counter -->
             <div>
-                <p id="error-message" class=" text-danger text-center">Something Went Wrong Please Try Again Later!</p>
+                <h5 class=" text-secondary text-center mb-4"> Items Found : <span id="item-found">-</span></h5>
             </div>
 
-            <!-- Book Search Results row-cols-1 row-cols-md-3 g-4-->
+            <!-- Showing No Result Message -->
+            <div>
+                <h3 id="error-message" class=" text-danger text-center mt-3"> No Results Found! </h3>
+            </div>
 
+            <!-- Book Search Results-->
             <div id="search-result" class="row d-flex justify-content-around g-4">
-
-                <!-- <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="" alt="">
-
-                    <div class="card-body">
-                        <h5 class="card-title">Books title</h5>
-                        <p class="card-text">Books Author</p>
-                        <p class="card-text">First Realese</p>
-                        <a href="#" class="btn btn-primary">See More Details</a>
-                    </div>
-                </div> -->
             </div>
-
         </section>
 
     </main>

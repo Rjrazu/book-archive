@@ -1,3 +1,6 @@
+document.getElementById('error-message').style.display = 'none';
+
+// Get Input Value
 const searchBook = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -5,38 +8,53 @@ const searchBook = () => {
     // clear
     searchField.value = '';
 
-    if (searchText == '') {
-        // document.getElementById('error-message').style.display = 'block';
-        alert('Make Sure You Type Something And Then You Search')
+    if (searchText === '') {
+        // blank error
+        alert('Please Type Something And Then You Can Search!');
     } else {
         // load data
         const url = `http://openlibrary.org/search.json?q=${searchText}`;
-        // console.log(url)
-
         fetch(url)
             .then(res => res.json())
-            .then(data => displaySearchResult(data.docs))
+            .then(data => displaySearchResult(data.docs));
     }
-}
+};
 
+//Display Results
 const displaySearchResult = books => {
+    // Items Counting
+    const searchResultCount = document.getElementById('item-found');
+    searchResultCount.innerText = books.length;
+
+    // error meassage
+    if (books.length === 0) {
+        document.getElementById('error-message').style.display = 'block';
+    } else {
+        document.getElementById('error-message').style.display = 'none';
+    }
+
+    // Search Result
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
     books.forEach(book => {
-        console.log(book)
-        const div = document.createElement('div');
-        div.classList.add('col');
-        div.innerHTML = `
-        <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="" alt="">
 
-        <div class="card-body">
-            <h5 class="card-title">Title : ${book.title}</h5>
-            <p class="card-text">Author : ${book.author_name}</p>
-            <p class="card-text">First Realese : ${book.first_publish_year}</p>
-            <a href="#" class="btn btn-primary">See More Details</a>
-        </div>
+        // Dynamic image link
+        const urlForImage = `https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`;
+
+        // Create Div For Swowing Results
+        const div = document.createElement('div');
+        div.classList.add('col-lg-4');
+        div.innerHTML = `
+            <div class="card shadow border-1 rounded-3" style="width: 20rem;">
+                  <img class="w-100 p-3 border rounded-3" src="${urlForImage}"  alt="COver Page Of Book">
+               <div class="card-body"> 
+                     <h5 class="card-title">Title of Book : ${book.title}</h5>
+                     <h6 class="card-text">Author : ${book.author_name}</h6>
+                     <p class="card-text">First Publish Year : ${book.first_publish_year}</p>
+                     <a target="_blank" href='${urlForImage}' class="btn btn-outline-warning">Click Here For Full Cover Page!</a>
+                </div>
+            </div>
         `;
         searchResult.appendChild(div);
     });
-}
+};
